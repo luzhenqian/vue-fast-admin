@@ -1,0 +1,11 @@
+{
+    "name": "vue-fast-admin",
+    "npmname": "vue-fast-admin",
+    "umdname": "vue-fast-admin",
+    "username": "15753140326@163.com",
+    "type": "js",
+    "module": "umd,esm,commonjs",
+    "test": "mocha",
+    "lang": "zh",
+    "version": "1.6.0"
+}
