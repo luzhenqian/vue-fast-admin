@@ -20,14 +20,14 @@
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "docs": "cd docs && npm run start"
   },
-  "author": "15753140326@163.com",
+  "author": "luzhenqian",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/15753140326@163.com/vue-fast-admin.git"
+    "url": "git://github.com/luzhenqian/vue-fast-admin.git"
   },
   "bugs": {
-    "url": "https://github.com/15753140326@163.com/vue-fast-admin/issues"
+    "url": "https://github.com/luzhenqian/vue-fast-admin/issues"
   },
   "files": [
     "/dist",
