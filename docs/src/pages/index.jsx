@@ -12,7 +12,7 @@ const features = [
     imageUrl: "img/1.svg",
     description: (
       <>
-        vue-fast-admin 的设计初衷就是为了方便后端程序员进行 to B
+        vue-fast-admin 的设计初衷就是为了方便后端工程师进行 to B
         系统的快速开发。6 行代码就可以实现一个表格。
       </>
     ),

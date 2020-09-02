@@ -16,15 +16,6 @@ export default {
       type: String,
       default: 'text'
     }
-  },
-  data() {
-    return {}
-  },
-  created() {},
-  mounted() {},
-  methods: {}
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

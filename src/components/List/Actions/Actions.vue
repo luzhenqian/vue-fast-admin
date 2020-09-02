@@ -8,19 +8,6 @@
 
 <script>
 export default {
-  name: 'FaActions',
-  props: {
-    // 删除
-    dataProvider: {
-      type: [Object, String],
-      default: undefined
-    }
-  },
-  data() {
-    return {}
-  }
+  name: 'FaActions'
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

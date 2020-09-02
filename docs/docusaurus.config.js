@@ -21,7 +21,7 @@ module.exports = {
           label: '文档',
           position: 'left',
         },
-        {to: 'blog', label: '博客', position: 'left'},
+        { to: 'blog', label: '博客', position: 'left' },
         {
           href: 'https://github.com/15753140326@163.com/vue-fast-admin',
           label: 'GitHub',

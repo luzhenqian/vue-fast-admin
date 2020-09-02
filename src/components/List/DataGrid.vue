@@ -1,5 +1,5 @@
 <template>
-  <el-table v-loading="loading" :data="list">
+  <el-table v-loading="loading" :data="list" v-bind="$attrs">
     <slot />
   </el-table>
 </template>

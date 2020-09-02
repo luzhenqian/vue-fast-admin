@@ -26,10 +26,6 @@ export default {
   },
   mounted() {
     this.hasSlot = 'default' in this.$slots
-  },
-  methods: {}
+  }
 }
 </script>
-
-<style lang="scss" scoped>
-</style>

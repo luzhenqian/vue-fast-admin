@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="loading" class="l-edit-wrap">
+  <div v-loading="loading" style="padding: 12px; max-width: 600px;">
     <slot name="edit" />
     <el-form
       ref="form"
@@ -9,7 +9,7 @@
     >
       <slot name="default" />
       <el-form-item>
-        <el-button type="primary" @click="edit">保存</el-button>
+        <el-button type="primary" @click="_edit">保存</el-button>
         <el-button v-if="reset" @click="_reset">重置</el-button>
         <!-- <el-button v-if="clear" @click="_clear">清空</el-button> -->
       </el-form-item>
@@ -18,7 +18,6 @@
 </template>
 
 <script>
-import request from '@/utils/request'
 export default {
   name: 'FaEdit',
   props: {
@@ -41,6 +40,20 @@ export default {
     clear: {
       type: Boolean,
       default: false
+    },
+    // 处理返回数据
+    responseProcess: {
+      type: Function,
+      default: (data) => {
+        return data
+      }
+    },
+    // 处理发送前的数据
+    requestProcess: {
+      type: Function,
+      default: (data) => {
+        return data
+      }
     }
   },
   data() {
@@ -49,26 +62,32 @@ export default {
     }
   },
   methods: {
-    async edit() {
+    async _edit() {
+      // 校验
       this.$refs.form.validate(async(valid) => {
         if (valid) {
+          // 校验通过，开始加载
           this.loading = true
+          // 处理 provider
+          let provider
+          if (typeof this.dataProvider === 'string') {
+            provider.url = this.dataProvider
+            provider.method = 'POST'
+          } else if (typeof this.dataProvider === 'object') {
+            await this.requestProcess(this.dataProvider)
+            provider = this.dataProvider
+          }
           try {
-            const data = this.data
-            if (typeof this.dataProvider === 'string') {
-              await request(this.dataProvider, {
-                method: 'POST',
-                data
-              })
-            } else if (typeof this.dataProvider === 'object') {
-              const { url, method } = this.dataProvider
-              await request(url, {
-                method,
-                data
-              })
-            }
+            const res = await this.responseProcess(await this.$edit(provider, this.data))
+            // 触发 success 事件
+            this.$emit('success', res)
+          } catch (e) {
+            // 触发 error 事件
+            this.$emit('error', e)
           } finally {
             this.loading = false
+            // 无论成功失败，都会触发 loaded 事件
+            this.$emit('edited')
           }
         } else {
           return false
@@ -81,10 +100,3 @@ export default {
   }
 }
 </script>
-
-<style>
-.l-edit-wrap{
-  padding: 12px;
-  max-width: 600px;
-}
-</style>

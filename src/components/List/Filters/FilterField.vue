@@ -12,18 +12,6 @@ export default {
     field: {
       type: String,
       default: ''
-    },
-    // 父组件的搜索表单
-    form: {
-      type: Object,
-      default: () => { return {} }
-    },
-    // 处理数据
-    process: {
-      type: Function,
-      default: (data) => {
-        return data
-      }
     }
   },
   data() {
@@ -31,7 +19,11 @@ export default {
       hasSlot: false
     }
   },
-  created() {},
+  created() {
+    if (!this.$parent.$parent.form) {
+      this.$parent.$parent.form = {}
+    }
+  },
   mounted() {
     this.hasSlot = 'default' in this.$slots
   },

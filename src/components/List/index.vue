@@ -1,13 +1,13 @@
 <template>
-  <div class="l-datagrid">
+  <div style='padding: 12px;'>
     <slot name="filters" />
-    <fa-data-grid :list="list || iList" :loading="loading">
+    <fa-data-grid :list="list || iList" :loading="loading" v-bind="$attrs">
       <slot name="default" />
       <slot name="actions" />
     </fa-data-grid>
     <fa-pagination
       v-if="usePagination"
-      class="l-pagination"
+      style="text-align: right;"
       :page-size="pageSize || iPageSize"
       :total="total || iTotal"
       :size-change="onSizeChange"
@@ -17,10 +17,10 @@
 </template>
 
 <script>
-import request from '@/utils/request'
+// import { find } from '../../fast-request'
 import DataGrid from './DataGrid'
 import Pagination from './Pagination'
-import Filters from './Filters'
+import Filters from './Filters/Filters'
 export default {
   name: 'FaList',
   components: {
@@ -59,8 +59,15 @@ export default {
       type: Number,
       default: undefined
     },
-    // 处理数据
-    process: {
+    // 处理返回数据
+    responseProcess: {
+      type: Function,
+      default: (data) => {
+        return data
+      }
+    },
+    // 处理发送前的数据
+    requestProcess: {
       type: Function,
       default: (data) => {
         return data
@@ -76,30 +83,47 @@ export default {
       loading: false
     }
   },
-  created() {},
   mounted() {
     this.loadData()
   },
   methods: {
+    // 加载数据
     async loadData() {
+      // 开始 loading
       this.loading = true
+      // 处理 provider
+      let provider = Object.create(null)
+      if (typeof this.dataProvider === 'string') {
+        provider.url = this.dataProvider
+        provider.method = 'GET'
+      } else if (typeof this.dataProvider === 'object') {
+        await this.requestProcess(this.dataProvider)
+        provider = this.dataProvider
+      }
       try {
-        let res
-        if (typeof this.dataProvider === 'string') {
-          // const res = await request(`${this.dataProvider}?pageSize=${pageSize}&pageNumber=${pageNumber}`)
-          res = await request(`${this.dataProvider}`)
-        }
+        const res = await this.responseProcess(await this.$find(provider))
         this.setData(res)
+        this.$emit('success', res)
+      } catch (e) {
+        // 触发 error 事件
+        this.$emit('error', e)
       } finally {
         this.loading = false
+        // 无论成功失败，都会触发 loaded 事件
+        this.$emit('loaded')
       }
     },
-
+    // 提供给子组件刷新数据
+    refreshData(data) {
+      this.setData(data)
+    },
+    // 通过事件通知父组件
     setData(data) {
+      // 区别父组件是否传入 list
       if (this.list !== undefined) {
-        this.$emit('update:list', this.process(data.data || data))
+        this.$emit('update:list', this.responseProcess(data.data || data))
       } else {
-        this.iList = this.process(data.data || data)
+        this.iList = this.responseProcess(data.data || data)
       }
       if (this.total !== undefined) {
         this.$emit('update:total', data.total)
@@ -107,41 +131,24 @@ export default {
         this.iTotal = data.total
       }
     },
-
-    refreshData(data) {
-      this.setData(data)
-    },
-
+    // 改变每页大小的回调函数
     onSizeChange(pageSize) {
       if (this.pageSize !== undefined) {
         this.$emit('update:pageSize', pageSize)
       } else {
         this.iPageSize = pageSize
       }
-
-      console.log('每页数量:', pageSize)
       this.loadData()
     },
-
+    // 改变页码的回调函数
     onCurrentChange(currentPage) {
       if (this.pageNumber !== undefined) {
         this.$emit('update:pageNumber', currentPage)
       } else {
         this.iPageNumber = currentPage
       }
-      console.log('当前页码:', currentPage)
       this.loadData()
     }
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.l-datagrid {
- padding: 12px;
-}
-
-.l-pagination {
-  text-align: right;
-}
-</style>
