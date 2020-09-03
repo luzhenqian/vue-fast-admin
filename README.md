@@ -48,7 +48,7 @@ Vue.use(VueFastAdmin);
 
 ## :bookmark_tabs: 文档
 
-[API](https://vue-fast-admin.vercel.app/)
+[API](https://vue-fast-admin.luzhenqian.com/)
 
 <!--
 ## :kissing_heart: 贡献者指南
