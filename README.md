@@ -5,7 +5,7 @@
 - 集成[jsmini](https://github.com/jsmini)
 
 > 注意: 如果不同时使用 `export` 与 `export default` 可打开 `legacy模式`，`legacy模式` 下的模块系统可以兼容 `ie6-8`，见rollup配置文件 -->
-<!-- 
+<!--
 ## :pill: 兼容性
 单元测试保证支持如下环境：
 
@@ -31,7 +31,7 @@
 
 ## :rocket: 使用者指南
 
-通过npm下载安装代码
+通过 npm 下载安装代码
 
 ```bash
 $ npm install --save vue-fast-admin
@@ -47,8 +47,10 @@ Vue.use(VueFastAdmin);
 ```
 
 ## :bookmark_tabs: 文档
-[API](./doc/api.md)
-<!-- 
+
+[API](https://vue-fast-admin.vercel.app/)
+
+<!--
 ## :kissing_heart: 贡献者指南
 首次运行需要先安装依赖
 
