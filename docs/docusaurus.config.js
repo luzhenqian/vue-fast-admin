@@ -1,7 +1,7 @@
 module.exports = {
   title: 'vue-fast-admin',
   tagline: '基于 Vue 和 Element-ui，面向后端工程师的快速开发组件库',
-  url: 'https://vuefastadmin.luzhenqian.top',
+  url: 'https://vue-fast-admin.luzhenqian.com/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.ico',
