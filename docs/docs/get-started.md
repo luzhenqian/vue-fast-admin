@@ -109,13 +109,13 @@ Vue.use(VueFastAdmin);
 }
 ```
 
+其中 data 属性用于渲染列表，total 属性用于分页。
+
 在 vue 项目中的视图中创建一个视图组件。传统的目录结构一般是 /src/views/xxx.vue。
 
 ```html
 <template>
-  <fa-list
-    data-provider="https://5f3b4c4afff8550016ae5218.mockapi.io/api/test/users"
-  >
+  <fa-list data-provider="https://5f3b4c4afff8550016ae5218.mockapi.io/api/test/users">
     <fa-list-field prop="name" label="姓名" />
     <fa-list-field prop="title" label="职务" />
   </fa-list>

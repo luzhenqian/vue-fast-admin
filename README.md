@@ -1,22 +1,11 @@
-# [vue-fast-admin](https://github.com/15753140326@163.com/vue-fast-admin)
-[![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/yanhaijing/jslib-base)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/15753140326@163.com/vue-fast-admin/blob/master/LICENSE)
-[![Build Status](https://travis-ci.org/15753140326@163.com/vue-fast-admin.svg?branch=master)](https://travis-ci.org/15753140326@163.com/vue-fast-admin)
-[![Coveralls](https://img.shields.io/coveralls/15753140326@163.com/vue-fast-admin.svg)](https://coveralls.io/github/15753140326@163.com/vue-fast-admin)
-[![npm](https://img.shields.io/badge/npm-0.1.0-orange.svg)](https://www.npmjs.com/package/vue-fast-admin)
-[![NPM downloads](http://img.shields.io/npm/dm/vue-fast-admin.svg?style=flat-square)](http://www.npmtrends.com/vue-fast-admin)
-[![Percentage of issues still open](http://isitmaintained.com/badge/open/15753140326@163.com/vue-fast-admin.svg)](http://isitmaintained.com/project/15753140326@163.com/vue-fast-admin "Percentage of issues still open")
-
-最好用的 `JS|TS` 第三方库脚手架
-
-## :star: 特性
+<!-- ## :star: 特性
 
 - 支持ES6+或TypeScript编写源码，编译生成生产代码
 - 多环境支持（支持浏览器原生，支持AMD，CMD，支持Webpack，Rollup，fis等，支持Node）
 - 集成[jsmini](https://github.com/jsmini)
 
-> 注意: 如果不同时使用 `export` 与 `export default` 可打开 `legacy模式`，`legacy模式` 下的模块系统可以兼容 `ie6-8`，见rollup配置文件
-
+> 注意: 如果不同时使用 `export` 与 `export default` 可打开 `legacy模式`，`legacy模式` 下的模块系统可以兼容 `ie6-8`，见rollup配置文件 -->
+<!-- 
 ## :pill: 兼容性
 单元测试保证支持如下环境：
 
@@ -25,6 +14,7 @@
 | 6+   | 29+ | 55+  | 9+   | 50+  | 9+   | 4+   | 4+ |
 
 **注意：编译代码依赖ES5环境，对于ie6-8需要引入[es5-shim](http://github.com/es-shims/es5-shim/)才可以兼容，可以查看[demo/demo-global.html](./demo/demo-global.html)中的例子**
+ -->
 
 ## :open_file_folder: 目录介绍
 
@@ -47,35 +37,18 @@
 $ npm install --save vue-fast-admin
 ```
 
-如果你是node环境
+引入 vue-fast-admin。
 
 ```js
-var base = require('vue-fast-admin');
-```
+import Vue from "vue";
+import VueFastAdmin from "vue-fast-admin";
 
-如果你是webpack等环境
-
-```js
-import base from 'vue-fast-admin';
-```
-
-如果你是requirejs环境
-
-```js
-requirejs(['node_modules/vue-fast-admin/dist/index.aio.js'], function (base) {
-    // xxx
-})
-```
-
-如果你是浏览器环境
-
-```html
-<script src="node_modules/vue-fast-admin/dist/index.aio.js"></script>
+Vue.use(VueFastAdmin);
 ```
 
 ## :bookmark_tabs: 文档
 [API](./doc/api.md)
-
+<!-- 
 ## :kissing_heart: 贡献者指南
 首次运行需要先安装依赖
 
@@ -117,4 +90,4 @@ $ npm publish
 [CHANGELOG.md](./CHANGELOG.md)
 
 ## :airplane: 计划列表
-[TODO.md](./TODO.md)
+[TODO.md](./TODO.md) -->

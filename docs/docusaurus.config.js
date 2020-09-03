@@ -23,7 +23,7 @@ module.exports = {
         },
         { to: 'blog', label: '博客', position: 'left' },
         {
-          href: 'https://github.com/15753140326@163.com/vue-fast-admin',
+          href: 'https://github.com/luzhenqian/vue-fast-admin',
           label: 'GitHub',
           position: 'right',
         },
@@ -36,12 +36,12 @@ module.exports = {
           title: '文档',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/doc1/',
+              label: '指南',
+              to: 'docs/get-started/',
             },
             {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
+              label: '组件',
+              to: 'docs/',
             },
           ],
         },
@@ -71,7 +71,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/15753140326@163.com/vue-fast-admin',
+              href: 'https://github.com/luzhenqian/vue-fast-admin',
             },
           ],
         },

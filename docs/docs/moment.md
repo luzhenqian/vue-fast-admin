@@ -12,4 +12,4 @@ export const Highlight = ({children, color}) => ( <span style={{
       padding: '0.2rem',
     }}>{children}</span> );
 
-通过 <Highlight color="#25c2a0">this.\$moment</Highlight> 可以访问 moment 库。
+通过 `this.$moment` 可以访问 moment 库。
