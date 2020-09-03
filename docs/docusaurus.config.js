@@ -16,7 +16,7 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/',
+          to: 'docs/get-started',
           activeBasePath: 'docs',
           label: '文档',
           position: 'left',
