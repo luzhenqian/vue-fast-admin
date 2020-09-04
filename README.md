@@ -16,7 +16,7 @@
 **注意：编译代码依赖ES5环境，对于ie6-8需要引入[es5-shim](http://github.com/es-shims/es5-shim/)才可以兼容，可以查看[demo/demo-global.html](./demo/demo-global.html)中的例子**
  -->
 
-## :open_file_folder: 目录介绍
+<!-- ## :open_file_folder: 目录介绍
 
 ```
 .
@@ -27,14 +27,18 @@
 ├── test 单元测试
 ├── CHANGELOG.md 变更日志
 └── TODO.md 计划功能
-```
+``` -->
+
+## :star: 简介
+
+基于 Vue 和 Element-ui，面向后端工程师的快速开发组件库。
 
 ## :rocket: 使用者指南
 
-通过 npm 下载安装代码
+通过 npm 安装。
 
 ```bash
-$ npm install --save vue-fast-admin
+npm install --save vue-fast-admin
 ```
 
 引入 vue-fast-admin。
@@ -44,6 +48,17 @@ import Vue from "vue";
 import VueFastAdmin from "vue-fast-admin";
 
 Vue.use(VueFastAdmin);
+```
+
+编写一个带有分页请求功能的 `table`。
+
+```html
+<template>
+  <fa-list data-provider="https://5f3b4c4afff8550016ae5218.mockapi.io/api/test/users" >
+    <fa-list-field prop="name" label="姓名" />
+    <fa-list-field prop="title" label="职务" />
+  </fa-list>
+</template>
 ```
 
 ## :bookmark_tabs: 文档
